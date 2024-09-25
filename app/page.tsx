@@ -7,7 +7,7 @@ export default function HomePage() {
     <div className="flex flex-col min-h-screen overflow-hidden">
       <Header />
       <main className="relative flex-1">
-        <div className="relative h-96 w-full max-w-screen-2xl mx-auto overflow-hidden rounded-none md:rounded-lg">
+        <div className="relative h-96 w-full max-w-screen-3xl mx-auto overflow-hidden rounded-none md:rounded-lg">
           <Image 
             src={Banner} 
             alt="Banner Image"
