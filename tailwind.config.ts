@@ -17,6 +17,10 @@ const config: Config = {
 		'3xl': '1792px',
 	},
   	extend: {
+		fontFamily: {
+			poppins: ['var(--font-poppins)', 'sans-serif'],
+			ptSans: ['var(--font-pt-sans)', 'sans-serif'],
+		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
