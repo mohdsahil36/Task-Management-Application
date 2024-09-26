@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import { Poppins ,PT_Sans} from "next/font/google";
 import "./globals.css";
+import { Metadata } from "next";
 import { ThemeProvider } from "./components/context/theme-provider";
 
 const geistSans = localFont({
@@ -28,6 +29,12 @@ const ptSans = PT_Sans({
   variable: "--font-pt-sans",
 });
 
+
+export const metadata: Metadata = {
+  title: 'PlanIt - Stay on Top of Your Tasks, Anytime, Anywhere',
+  description: 'Streamline your workflow with an intuitive task manager designed for efficiency and simplicity.',
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -36,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${ptSans.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${ptSans.variable} ${poppins.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"
