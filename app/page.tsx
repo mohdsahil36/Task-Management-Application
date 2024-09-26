@@ -12,7 +12,7 @@ export default function HomePage() {
             Organize Your Tasks, Elevate Your Productivity.
           </h1>
           <h2 className="text-4xl sm:text-5xl font-bold leading-tight mb-3">
-            Welcome to <span className='underline'>Planit</span>
+            Welcome to <span className='underline underline-offset-8'>Planit</span>
           </h2>
           <h2 className="text-lg sm:text-xl font-medium max-w-xl mx-auto mb-2">
             Seamlessly organize tasks, set clear goals, and track your progress—all with a sleek, intuitive interface that helps you stay focused and productive.
