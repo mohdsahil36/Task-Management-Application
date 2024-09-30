@@ -42,7 +42,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
       <html lang="en" suppressHydrationWarning={true}>
         <body
           className={`${geistSans.variable} ${geistMono.variable} ${ptSans.variable} ${poppins.variable} antialiased`}
@@ -53,10 +52,11 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+          <ClerkProvider>
             {children}
+          </ClerkProvider>
           </ThemeProvider>
         </body>
       </html>
-    </ClerkProvider>
   );
 }
