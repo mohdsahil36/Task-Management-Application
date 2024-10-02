@@ -1,9 +1,11 @@
-import { SignUp } from '@clerk/nextjs'
+import { SignUp } from '@clerk/nextjs';
 
-export default function Page() {
+const SignUpPage = () => {
   return (
-    <div className='h-full flex items-center justify-center'>
+    <div className="h-full flex items-center justify-center">
       <SignUp />
     </div>
-  )
-}
+  );
+};
+
+export default SignUpPage;
