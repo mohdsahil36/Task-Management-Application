@@ -1,14 +1,15 @@
 import React from 'react';
 import { auth, currentUser } from '@clerk/nextjs/server';
+import { Toaster } from 'sonner';
 import SignUpPage from '@/app/(auth)/sign-up/[[...sign-up]]/page';
 
 
 export default async function Dashboard(){
     const userId=auth();
-    if(!userId){
+    const user=await currentUser();
+    if(!userId || !user){
         return <SignUpPage/>
     }
-    const user=await currentUser();
     console.log(user);
     return(
         <div className='h-full bg-slate-800'>
