@@ -12,9 +12,9 @@ export default async function Dashboard() {
     }
 
     return (
-        <div className='h-screen relative'>
+        <div className='h-screen flex'>
             <Sidebar />
-            <div className='bg-neutral-200 w-full h-full'>
+            <div className='bg-neutral-200 flex-1 h-full p-6 overflow-y-auto'>
                 Data content
             </div>
         </div>
