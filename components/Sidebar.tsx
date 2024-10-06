@@ -13,12 +13,12 @@ export default function Sidebar() {
   return (
     <aside
       className={`h-screen bg-gray-800 text-white p-3.5 transition-all duration-300 ease-in-out ${
-        isOpen ? 'w-24 md:w-48' : 'w-16'
+        isOpen ? 'w-32 md:w-52' : 'w-14'
       }`}
     >
       <div className={`flex ${isOpen ? 'justify-end' : 'justify-center'} transition-all duration-300 ease-in-out`}>
         <button onClick={toggleSidebar} className='transition-all duration-300 ease-in-out'>
-          <IconMenu2 stroke={1.5} size={25} />
+          <IconMenu2 stroke={1.5} size={30} />
         </button>
       </div>
       <div
