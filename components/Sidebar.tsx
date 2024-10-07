@@ -1,17 +1,10 @@
 "use client"
 
 import React, { useState } from 'react';
-import { useUser } from '@clerk/nextjs';
-import { IconMenu2 } from '@tabler/icons-react';
+import { ArrowLeft } from 'lucide-react';
 
 export default function Sidebar() {
-  const [isOpen, setIsOpen] = useState(true);
-  const { isSignedIn, user, isLoaded } = useUser();
-
-  if(isSignedIn && isLoaded){
-    console.log("User data", user);
-  }
-
+  const [isOpen, setIsOpen] = useState(false);
 
   function toggleSidebar() {
     setIsOpen(!isOpen);
@@ -19,17 +12,21 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`h-screen bg-gray-800 text-white p-3.5 transition-all duration-300 ease-in-out ${
+      className={`h-screen bg-black text-white p-3.5 transition-all duration-300 ease-in-out ${
         isOpen ? 'w-32 md:w-52' : 'w-14'
       }`}
     >
       <div className={`flex ${isOpen ? 'justify-end' : 'justify-center'} transition-all duration-300 ease-in-out`}>
-        <button onClick={toggleSidebar} className='transition-all duration-300 ease-in-out'>
-          <IconMenu2 stroke={1.5} size={30} />
+        <button
+          onClick={toggleSidebar}
+          className='transition-transform duration-300 ease-in-out'
+        >
+          <ArrowLeft
+            className={`transition-transform duration-300 ease-in-out ${
+              isOpen ? 'rotate-0' : 'rotate-180'
+            }`}
+          />
         </button>
-      </div>
-      <div>
-
       </div>
     </aside>
   );
