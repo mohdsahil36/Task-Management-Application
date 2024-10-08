@@ -17,8 +17,9 @@ export default async function Dashboard() {
             <Sidebar />
             <div className='bg-neutral-200 flex-1 h-full p-6 overflow-y-auto relative'>
                 Data content
-                <UserItem/>
+                <UserItem />
             </div>
+
         </div>
     );
 }
