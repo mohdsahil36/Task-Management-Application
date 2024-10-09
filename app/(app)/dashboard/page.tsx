@@ -15,8 +15,7 @@ export default async function Dashboard() {
     return (
         <div className='h-screen flex'>
             <Sidebar />
-            <div className='bg-neutral-200 flex-1 h-full p-6 overflow-y-auto relative'>
-                Data content
+            <div className='bg-neutral-200 flex-1 h-full overflow-y-auto relative'>
                 <UserItem />
             </div>
 

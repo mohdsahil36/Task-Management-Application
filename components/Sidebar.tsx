@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { ArrowLeft } from 'lucide-react';
-import { ModeToggle } from '@/app/components/ui/mode-toggle';
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
