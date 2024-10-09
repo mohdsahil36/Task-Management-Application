@@ -13,7 +13,7 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`h-screen bg-black text-white p-3.5 transition-all duration-300 ease-in-out ${
+      className={`h-screen bg-black dark:bg-white text-white dark:text-black p-3.5 transition-all duration-300 ease-in-out ${
         isOpen ? 'w-32 md:w-52' : 'w-14'
       }`}
     >
@@ -28,9 +28,6 @@ export default function Sidebar() {
             }`}
           />
         </button>
-      </div>
-      <div className='page-theme-toggler items-center'>
-        <ModeToggle/>
       </div>
     </aside>
   );
