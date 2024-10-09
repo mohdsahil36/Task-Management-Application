@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { ArrowLeft } from 'lucide-react';
+import { ModeToggle } from '@/app/components/ui/mode-toggle';
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,6 +28,9 @@ export default function Sidebar() {
             }`}
           />
         </button>
+      </div>
+      <div className='page-theme-toggler items-center'>
+        <ModeToggle/>
       </div>
     </aside>
   );

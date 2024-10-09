@@ -59,6 +59,7 @@ export const UserItem = () => {
             Log out
           </SignOutButton>
         </DropdownMenuItem>
+        <DropdownMenuSeparator />
       </DropdownMenuContent>
     </DropdownMenu>
   );
