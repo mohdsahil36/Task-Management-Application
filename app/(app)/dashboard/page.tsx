@@ -17,10 +17,12 @@ export default async function Dashboard() {
     let currentHours=currentDate.getHours();
     console.log("current hours:",currentHours);
 
+    
+
     return (
         <div className='h-screen flex'>
             <Sidebar />
-            <div className='bg-neutral-200 flex-1 h-full p-3 overflow-y-auto relative'>
+            <div className='bg-neutral-200 flex-1 h-full p-2.5 overflow-y-auto relative'>
                 <div>
                     <h1>Hello , {user.firstName}{user.lastName}</h1>
                 </div>
