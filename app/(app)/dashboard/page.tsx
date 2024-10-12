@@ -35,7 +35,7 @@ export default async function Dashboard() {
     return (
         <div className='h-screen flex'>
             <Sidebar />
-            <div className='bg-neutral-200 flex-1 h-full p-2.5 overflow-y-auto relative'>
+            <div className='bg-[#f5f5f5] flex-1 h-full p-2.5 overflow-y-auto relative'>
                 <div>
                     <Greeting firstName={user.firstName} lastName={user.lastName} initialGreeting={initialGreeting} />
                 </div>

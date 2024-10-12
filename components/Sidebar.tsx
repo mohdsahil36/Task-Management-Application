@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from 'react';
-import { ArrowLeft } from 'lucide-react';
+import { Menu  } from 'lucide-react';
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,8 +12,8 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`h-screen bg-black dark:bg-white text-white dark:text-black p-3.5 transition-all duration-300 ease-in-out ${
-        isOpen ? 'w-32 md:w-52' : 'w-14'
+      className={`h-screen bg-white text-black p-3.5 transition-all duration-300 ease-in-out ${
+        isOpen ? 'w-32 md:w-60' : 'w-14'
       }`}
     >
       <div className={`flex ${isOpen ? 'justify-end' : 'justify-center'} transition-all duration-300 ease-in-out`}>
@@ -21,8 +21,8 @@ export default function Sidebar() {
           onClick={toggleSidebar}
           className='transition-transform duration-300 ease-in-out'
         >
-          <ArrowLeft
-            className={`transition-transform duration-300 ease-in-out ${
+          <Menu
+            className={`mt-2 md:mt-4 transition-transform duration-300 ease-in-out ${
               isOpen ? 'rotate-0' : 'rotate-180'
             }`}
           />

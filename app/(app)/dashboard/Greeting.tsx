@@ -30,7 +30,7 @@ const Greeting: React.FC<GreetingProps> = ({ firstName, lastName, initialGreetin
 
     return (
         <div>
-            <h1>{greeting}, {firstName} {lastName}!</h1>
+            <p className='text-xl md:text-4xl ms-3 mt-3 font-bold   '>{greeting}, {firstName} {lastName}!</p>
         </div>
     );
 };
