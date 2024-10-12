@@ -3,6 +3,7 @@ import { auth, currentUser } from '@clerk/nextjs/server';
 import SignUpPage from '@/app/(auth)/sign-up/[[...sign-up]]/page';
 import Sidebar from '@/components/Sidebar';
 import Greeting from './Greeting';
+import Features from './features';
 
 interface User {
     firstName: string;
@@ -38,6 +39,9 @@ export default async function Dashboard() {
             <div className='bg-[#f5f5f5] flex-1 h-full p-2.5 overflow-y-auto relative'>
                 <div>
                     <Greeting firstName={user.firstName} lastName={user.lastName} initialGreeting={initialGreeting} />
+                </div>
+                <div className='mt-8'>
+                   <Features/> 
                 </div>
             </div>
         </div>

@@ -17,7 +17,7 @@ export default function HomePage() {
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-10 sm:px-8">
         <div className="flex flex-col items-center justify-center text-center gap-y-4">
           <h1 className="text-4xl sm:text-5xl font-bold leading-tight mb-3">
-            Organize Your Tasks, Elevate Your Productivity.
+            Manage Your Tasks with Ease
           </h1>
           <h2 className="text-4xl sm:text-5xl font-bold leading-tight mb-3">
             Welcome to <span className="underline underline-offset-8">Planit</span>
