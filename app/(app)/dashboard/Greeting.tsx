@@ -17,18 +17,20 @@ const Greeting: React.FC<GreetingProps> = ({ firstName, lastName, initialGreetin
 
         if (currentHour < 12) {
             updatedGreeting = 'Good morning';
-        } else if (currentHour < 18) {
+        } else if (currentHour > 12 && currentHour < 17 ) {
             updatedGreeting = 'Good afternoon';
+        } else if(currentHour > 17 && currentHour < 20 ){
+            updatedGreeting="Good evening";
         } else {
-            updatedGreeting = 'Good evening';
+            updatedGreeting="Good Night"
         }
 
         setGreeting(updatedGreeting);
-    }, [initialGreeting]); // Update only if the initial greeting changes
+    }, [initialGreeting]);
 
     return (
         <div>
-            <h1>{greeting}, {firstName} {lastName}</h1>
+            <h1>{greeting}, {firstName} {lastName}!</h1>
         </div>
     );
 };
