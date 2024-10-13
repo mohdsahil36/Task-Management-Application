@@ -40,7 +40,7 @@ export default async function Dashboard() {
                 <div>
                     <Greeting firstName={user.firstName} lastName={user.lastName} initialGreeting={initialGreeting} />
                 </div>
-                <div className='mt-8'>
+                <div className='mt-4 md:mt-8'>
                    <Features/> 
                 </div>
             </div>

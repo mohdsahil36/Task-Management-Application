@@ -3,7 +3,7 @@ import FeatureCard from '@/components/feature-card';
 
 export default function Features(){
     return(
-        <div className='grid grid-cols-4 gap-8'>
+        <div className='grid md:grid-cols-4 gap-y-3 gap-x-3 '>
             <FeatureCard/>
             <FeatureCard/>
             <FeatureCard/>
