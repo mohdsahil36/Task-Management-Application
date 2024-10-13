@@ -40,7 +40,7 @@ export default function HomePage() {
                 </Link>
               ) : (
                 <Link href="/sign-up">
-                  <Button>Let's get started</Button>
+                  <Button>Let&apos;s get started</Button>
                 </Link>
               )}
             </>
