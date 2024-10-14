@@ -1,16 +1,22 @@
 import React from 'react';
-import { CircleCheck } from 'lucide-react';
+import { LucideProps } from 'lucide-react';
 
-export default function FeatureCard(){
-    return(
-        <div className='p-4 md:p-7 bg-white rounded-lg'>
+interface FeatureCardProps {
+    title: string;
+    description: string;
+    Icon: React.ComponentType<LucideProps>;
+}
+
+export default function FeatureCard({ title, description, Icon }: FeatureCardProps) {
+    return (
+        <div className='block p-4 md:p-7 bg-white rounded-lg md:flex justify-center items-center gap-x-4'>
             <div className='hidden md:block'>
-                <CircleCheck/>
+                <Icon className="w-6 h-6 text-primary" />
             </div>
             <div>
-                <p className='mb-1.5 font-bold'>Feature Card</p>
-                <p className='text-xs'>Organize tasks into To-Do, In Progress, Under Review, and Completed categories.</p>
+                <p className='mb-1.5 font-bold text-base md:text-2xl'>{title}</p>
+                <p className='text-xs md:text-base'>{description}</p>
             </div>
         </div>
-    )
+    );
 }
