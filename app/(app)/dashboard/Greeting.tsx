@@ -28,8 +28,6 @@ const Greeting: React.FC<GreetingProps> = ({ firstName, lastName, initialGreetin
         setGreeting(updatedGreeting);
     }, [initialGreeting]);
 
-    let hours=new Date().getHours();
-    console.log(hours);
 
     return (
         <div>
