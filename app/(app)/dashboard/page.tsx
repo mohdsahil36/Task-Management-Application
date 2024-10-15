@@ -31,7 +31,7 @@ export default async function Dashboard() {
         return <SignUpPage />;
     }
 
-    const initialGreeting = getServerGreeting(); // Generate initial greeting on the server
+    const initialGreeting = getServerGreeting(); 
 
     return (
         <div className='h-screen flex'>

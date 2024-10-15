@@ -28,6 +28,9 @@ const Greeting: React.FC<GreetingProps> = ({ firstName, lastName, initialGreetin
         setGreeting(updatedGreeting);
     }, [initialGreeting]);
 
+    let hours=new Date().getHours();
+    console.log(hours);
+
     return (
         <div>
             <p className='text-xl md:text-4xl ms-3 mt-3 font-bold   '>{greeting}, {firstName} {lastName}!</p>
