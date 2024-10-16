@@ -31,7 +31,7 @@ const Greeting: React.FC<GreetingProps> = ({ firstName, lastName, initialGreetin
 
     return (
         <div>
-            <p className='text-xl md:text-4xl ms-3 mt-3 font-bold   '>{greeting}, {firstName} {lastName}!</p>
+            <p className='text-xl md:text-4xl ms-3 mt-2.5 font-bold'>{greeting}, {firstName} {lastName}!</p>
         </div>
     );
 };

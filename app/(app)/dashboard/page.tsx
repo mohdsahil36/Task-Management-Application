@@ -4,6 +4,7 @@ import SignUpPage from '@/app/(auth)/sign-up/[[...sign-up]]/page';
 import Sidebar from '@/components/Sidebar';
 import Greeting from './Greeting';
 import Features from './features';
+import TaskFilter from './task-filter';
 
 interface User {
     firstName: string;
@@ -42,6 +43,9 @@ export default async function Dashboard() {
                 </div>
                 <div className='mt-4 md:mt-8'>
                    <Features/>
+                </div>
+                <div className='mt-4 md:mt-8 block md:flex items-center justify-between'>
+                    <TaskFilter/>
                 </div>
             </div>
         </div>
