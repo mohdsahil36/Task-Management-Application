@@ -41,7 +41,7 @@ export default async function Dashboard() {
                 {/* <div>
                     <Greeting firstName={user.firstName} lastName={user.lastName} initialGreeting={initialGreeting} />
                 </div> */}
-                <div className='mt-4 md:mt-5.5'>
+                <div className='mt-3 md:mt-5.5'>
                    <Features/>
                 </div>
                 <div className='mt-4 md:mt-8 block md:flex items-center justify-between'>

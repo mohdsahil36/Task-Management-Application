@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Menu  } from 'lucide-react';
+import UserItem from '@/app/(app)/dashboard/user-item';
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +13,7 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`h-screen bg-white text-black p-3.5 transition-all duration-300 ease-in-out ${
+      className={`h-screen bg-white text-black p-3.5 transition-all duration-300 ease-in-out relative ${
         isOpen ? 'w-32 md:w-60' : 'w-14'
       }`}
     >
@@ -27,6 +28,9 @@ export default function Sidebar() {
             }`}
           />
         </button>
+      </div>
+      <div className="absolute bottom-6">
+        <UserItem/>
       </div>
     </aside>
   );

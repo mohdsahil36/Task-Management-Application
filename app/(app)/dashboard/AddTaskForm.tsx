@@ -29,7 +29,6 @@ interface FormData {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       const { id, value } = e.target;
       
-      // Explicitly define the type of 'prevData' as FormData
       setFormData((prevData: FormData) => ({
         ...prevData,
         [id]: value,

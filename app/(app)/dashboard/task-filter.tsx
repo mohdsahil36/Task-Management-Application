@@ -27,7 +27,7 @@ export default function TaskFilter() {
         <Input placeholder="Search Task" type="text" />
         <Button type="submit">Search</Button>
       </div>
-      <div className="text-start">
+      <div className="text-center md:text-start mt-2 md:mt-none">
         <Dialog>
           <DialogTrigger asChild>
             <Button>
@@ -39,7 +39,7 @@ export default function TaskFilter() {
               <DialogTitle>Add new task</DialogTitle>
               <DialogDescription>Add details of your task and you&apos;re good to go!</DialogDescription>
             </DialogHeader>
-            
+
             <AddTaskForm
               formData={formData}
               setFormData={setFormData}
