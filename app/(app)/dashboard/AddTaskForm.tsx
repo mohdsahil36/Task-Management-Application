@@ -48,6 +48,16 @@ interface FormData {
         priority: value,
       }));
     };
+
+    const handleDateSelect = (selectedDate: Date | undefined) => {
+      setDate(selectedDate);
+      if (selectedDate) {
+        setFormData((prevData: FormData) => ({
+          ...prevData,
+          deadline: format(selectedDate, "PPP"),
+        }));
+      }
+    };
   
     return (
       <div className="grid gap-4">
@@ -128,7 +138,7 @@ interface FormData {
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0">
-              <Calendar mode="single" selected={date} onSelect={setDate} initialFocus />
+              <Calendar mode="single" selected={date} onSelect={handleDateSelect} initialFocus />
             </PopoverContent>
           </Popover>
         </div>

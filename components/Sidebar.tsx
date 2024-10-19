@@ -13,7 +13,7 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`h-screen bg-white text-black p-3.5 transition-all duration-300 ease-in-out relative ${
+      className={`h-screen bg-white dark:bg-[#262626] text-black dark: text-white p-3.5 transition-all duration-300 ease-in-out relative ${
         isOpen ? 'w-32 md:w-60' : 'w-14'
       }`}
     >
