@@ -11,18 +11,18 @@ interface User {
     lastName: string;
 }
 
-const getServerGreeting = (): string => {
-    const currentHour = new Date().getHours();
-    if (currentHour < 12) {
-        return 'Good morning';
-    } else if (currentHour > 12 && currentHour < 17 ) {
-        return 'Good afternoon';
-    } else if (currentHour > 17 && currentHour < 20 ) {
-        return 'Good evening';
-    } else {
-        return 'Good night';
-    }
-};
+// const getServerGreeting = (): string => {
+//     const currentHour = new Date().getHours();
+//     if (currentHour < 12) {
+//         return 'Good morning';
+//     } else if (currentHour > 12 && currentHour < 17 ) {
+//         return 'Good afternoon';
+//     } else if (currentHour > 17 && currentHour < 20 ) {
+//         return 'Good evening';
+//     } else {
+//         return 'Good night';
+//     }
+// };
 
 export default async function Dashboard() {
     const { userId } = auth();
@@ -32,16 +32,16 @@ export default async function Dashboard() {
         return <SignUpPage />;
     }
 
-    const initialGreeting = getServerGreeting(); 
+    // const initialGreeting = getServerGreeting(); 
 
     return (
         <div className='h-screen flex'>
             <Sidebar />
             <div className='bg-[#f5f5f5] flex-1 h-full p-2.5 overflow-y-auto relative'>
-                <div>
+                {/* <div>
                     <Greeting firstName={user.firstName} lastName={user.lastName} initialGreeting={initialGreeting} />
-                </div>
-                <div className='mt-4 md:mt-8'>
+                </div> */}
+                <div className='mt-4 md:mt-5.5'>
                    <Features/>
                 </div>
                 <div className='mt-4 md:mt-8 block md:flex items-center justify-between'>
