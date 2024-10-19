@@ -2,7 +2,7 @@ import React from 'react';
 import { auth, currentUser } from '@clerk/nextjs/server';
 import SignUpPage from '@/app/(auth)/sign-up/[[...sign-up]]/page';
 import Sidebar from '@/components/Sidebar';
-import Greeting from './Greeting';
+// import Greeting from './Greeting';
 import Features from './features';
 import TaskFilter from './task-filter';
 
