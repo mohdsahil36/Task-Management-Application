@@ -4,7 +4,7 @@ import SignUpPage from '@/app/(auth)/sign-up/[[...sign-up]]/page';
 import Sidebar from '@/components/Sidebar';
 import Features from './features';
 import TaskFilter from './task-filter';
-import TaskBoard from './(kanban-board)/page';
+import TaskBoard from './(kanban-board)/TaskBoard';
 
 interface User {
     firstName: string;
