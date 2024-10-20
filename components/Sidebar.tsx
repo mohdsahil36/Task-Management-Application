@@ -39,7 +39,7 @@ export default function Sidebar() {
               <Settings className='h-7 w-7' />
             </Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-[425px]">
+          <DialogContent className="sm:max-w-[500px]">
             <DialogHeader className='border-b pb-3'>
               <h2>My Settings</h2>
             </DialogHeader>

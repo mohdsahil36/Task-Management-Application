@@ -49,7 +49,7 @@ export default function TaskFilter() {
 
             <DialogFooter>
               <Button type="button" onClick={dataHandler}>
-                Create
+                Add Task
               </Button>
             </DialogFooter>
           </DialogContent>
