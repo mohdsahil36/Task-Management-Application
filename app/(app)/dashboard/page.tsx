@@ -29,7 +29,7 @@ export default async function Dashboard() {
                 <div className='mt-4 md:mt-8 block md:flex items-center justify-between'>
                     <TaskFilter/>
                 </div>
-                <div className='mt-4 md:mt-7 grid grid-cols-4 gap-x-4 text-center '>
+                <div>
                     <TaskBoard/>
                 </div>
             </div>
