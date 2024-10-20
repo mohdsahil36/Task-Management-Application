@@ -22,8 +22,8 @@ const ColumnData: Columns[] = [
 export default function TaskBoard(){ 
     
     return(
-        ColumnData.map((item)=>(
-            <div className='bg-black dark:bg-white text-white dark:text-black p-3 rounded-lg'>
+        ColumnData.map((item,index)=>(
+            <div className='bg-black dark:bg-white text-white dark:text-black p-3 rounded-lg' key={index}>
                 <p className='text-xs md:text-lg flex items-center justify-center'>{item.title}</p>
             </div>
         ))
