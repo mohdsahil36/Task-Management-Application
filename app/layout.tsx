@@ -42,21 +42,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <html lang="en" suppressHydrationWarning={true}>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} ${ptSans.variable} ${poppins.variable} antialiased`}
+    <html lang="en" suppressHydrationWarning={true}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${ptSans.variable} ${poppins.variable} antialiased`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
         >
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            enableSystem
-            disableTransitionOnChange
-          >
           <ClerkProvider>
             {children}
           </ClerkProvider>
-          </ThemeProvider>
-        </body>
-      </html>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }
