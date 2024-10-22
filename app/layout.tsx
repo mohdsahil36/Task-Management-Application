@@ -4,6 +4,7 @@ import "./globals.css";
 import { Metadata } from "next";
 import { ThemeProvider } from "./components/context/theme-provider";
 import { ClerkProvider } from '@clerk/nextjs';
+import {Toaster} from 'sonner';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -46,16 +47,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${ptSans.variable} ${poppins.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <ClerkProvider>
+        <ClerkProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          >
             {children}
-          </ClerkProvider>
-        </ThemeProvider>
+            <Toaster richColors/>
+          </ThemeProvider>
+        </ClerkProvider>
       </body>
     </html>
   );

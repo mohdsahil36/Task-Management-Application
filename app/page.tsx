@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from 'react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -7,9 +8,20 @@ import { Button } from "@/components/ui/button";
 import { Spinner } from '@/components/spinner';
 import { ArrowRight } from 'lucide-react';
 import { useUser } from '@clerk/nextjs';
+import {toast} from 'sonner';
 
 export default function HomePage() {
-  const { isSignedIn, isLoaded } = useUser();
+  const { isSignedIn, isLoaded, user } = useUser();
+
+  useEffect(() => {
+    if (isSignedIn && user) {
+      toast.success(`Success! Welcome to PlanIt ${user?.fullName}`,{
+        duration: 2500,
+        position:'bottom-center',
+        invert:true
+      })
+    }
+  }, [isSignedIn, user, toast]);
 
   return (
     <div className="flex flex-col min-h-screen">

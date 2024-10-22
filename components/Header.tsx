@@ -40,9 +40,7 @@ export default function Header() {
               )}
             </>
           )}
-          {/* <div className='min-w-full'> */}
             <ModeToggle/>
-          {/* </div> */}
         </div>
       </div>
     </header>
