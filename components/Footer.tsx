@@ -2,7 +2,7 @@ import { Button } from './ui/button';
 
 export default function Footer() {
   return (
-    <footer className="sticky bottom-0 w-full bg-white dark:bg-black shadow-md p-4">
+    <footer className="sticky bottom-0 w-full bg-white dark:bg-[#1F1F1F] shadow-md p-4">
       <div className='flex items-center justify-between md:justify-center'>
         <Button variant='ghost'>
           Privacy Policy
