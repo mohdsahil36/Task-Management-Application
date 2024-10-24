@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from "react";
 import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,7 +5,17 @@ import { Dialog, DialogContent, DialogHeader, DialogFooter, DialogTrigger, Dialo
 import { Input } from "@/components/ui/input";
 import AddTaskForm from "./AddTaskForm";
 
-export default function TaskFilter() {
+interface TaskFilterProps {
+  onAddTask: (task: {
+    title: string;
+    description: string;
+    status: string;
+    priority: string;
+    deadline: string;
+  }) => void;
+}
+
+export default function TaskFilter({ onAddTask }: TaskFilterProps) {
   const [date, setDate] = useState<Date | undefined>();
   const [formData, setFormData] = useState({
     title: "",
@@ -18,7 +26,10 @@ export default function TaskFilter() {
   });
 
   const dataHandler = () => {
-    console.log("Form data submitted: ", formData);
+    onAddTask({
+      ...formData,
+      deadline: date ? date.toDateString() : "",
+    });
   };
 
   return (
