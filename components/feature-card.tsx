@@ -10,7 +10,7 @@ interface FeatureCardProps {
 export default function FeatureCard({ title, description, Icon }: FeatureCardProps) {
     return (
         <div className='hidden md:block p-4 md:p-7 bg-white dark:bg-[#262626] rounded-lg md:flex justify-center items-center gap-x-4 '>
-            <div className='hidden md:block'>
+            <div className='hidden xl:block'>
                 <Icon className="w-6 h-6 text-primary" />
             </div>
             <div>

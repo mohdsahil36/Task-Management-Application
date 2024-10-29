@@ -35,7 +35,7 @@ export default function Features() {
     }, []);
 
     return (
-        <div className='md:flex flex-col lg:grid grid-cols-2 gap-y-3 gap-x-4'>
+        <div className='md:flex flex-col xl:grid grid-cols-2 gap-y-3 gap-x-4'>
             {cardData.map((feature, index) => (
                 <FeatureCard 
                     key={index} 
