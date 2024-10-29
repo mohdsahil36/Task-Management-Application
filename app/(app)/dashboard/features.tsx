@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import FeatureCard from '@/components/feature-card';
-import { CircleCheck, Users, BarChart, Calendar } from 'lucide-react';
+import { CircleCheck, BarChart, Calendar } from 'lucide-react';
 interface Feature {
     title: string;
     description: string;
