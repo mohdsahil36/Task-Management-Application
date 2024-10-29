@@ -16,11 +16,6 @@ const featuresData: Feature[] = [
         icon: CircleCheck,
     },
     {
-        title: "Collaboration",
-        description: "Work together with your team on shared projects and tasks",
-        icon: Users,
-    },
-    {
         title: "Progress Tracking",
         description: "Monitor your progress with intuitive charts and statistics",
         icon: BarChart,
@@ -40,7 +35,7 @@ export default function Features() {
     }, []);
 
     return (
-        <div className='grid grid-cols-2 md:grid-cols-4 gap-y-3 gap-x-4'>
+        <div className='md:flex flex-col lg:grid grid-cols-2 gap-y-3 gap-x-4'>
             {cardData.map((feature, index) => (
                 <FeatureCard 
                     key={index} 
