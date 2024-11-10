@@ -23,7 +23,7 @@ export default function TaskBoard({ columns }: TaskBoardProps) {
     <div className="grid grid-cols-4 gap-x-4 text-center mt-4 md:mt-7">
       {columns.map((column) => (
         <div key={column.id}>
-          <p className="text-xs md:text-lg flex items-center justify-center mb-4 bg-black dark:bg-white text-black p-3 rounded-lg">
+          <p className="text-xs md:text-base flex items-center justify-start mb-4 rounded-md p-3 bg-white text-[#3F3F3F] border-2 border-[#ddd8d8ee]">
             {column.title}
           </p>
           <div className="space-y-2">
@@ -32,12 +32,14 @@ export default function TaskBoard({ columns }: TaskBoardProps) {
                 key={index}
                 className="bg-gray-200 dark:bg-gray-800 p-3 rounded-lg text-black dark:text-white text-start"
               >
-                <span className="text-sm uppercase">{task.priority}</span>
+                <div>
+                  <span className="text-sm uppercase">{task.priority}</span>
+                  <p className="text-xs italic">{task.deadline}</p>
+                </div>
                 <p className="font-semibold text-2xl normal-case">
                   {task.title}
                 </p>
                 <p className="text-base normal-case my-2">{task.description}</p>
-                <p className="text-xs italic">{task.deadline}</p>
               </div>
             ))}
           </div>

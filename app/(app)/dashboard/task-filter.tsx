@@ -5,32 +5,7 @@ import { Dialog, DialogContent, DialogHeader, DialogFooter, DialogTrigger, Dialo
 import { Input } from "@/components/ui/input";
 import AddTaskForm from "./AddTaskForm";
 
-interface TaskFilterProps {
-  onAddTask: (task: {
-    title: string;
-    description: string;
-    status: string;
-    priority: string;
-    deadline: string;
-  }) => void;
-}
-
-export default function TaskFilter({ onAddTask }: TaskFilterProps) {
-  const [date, setDate] = useState<Date | undefined>();
-  const [formData, setFormData] = useState({
-    title: "",
-    description: "",
-    status: "",
-    priority: "",
-    deadline: "",
-  });
-
-  const dataHandler = () => {
-    onAddTask({
-      ...formData,
-      deadline: date ? date.toDateString() : "",
-    });
-  };
+export default function TaskFilter() {
 
   return (
     <>
@@ -52,14 +27,10 @@ export default function TaskFilter({ onAddTask }: TaskFilterProps) {
             </DialogHeader>
 
             <AddTaskForm
-              formData={formData}
-              setFormData={setFormData}
-              date={date}
-              setDate={setDate}
             />
-
+            
             <DialogFooter>
-              <Button type="button" onClick={dataHandler}>
+              <Button type="button">
                 Add Task
               </Button>
             </DialogFooter>

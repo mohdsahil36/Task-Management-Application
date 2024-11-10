@@ -3,6 +3,12 @@
 import React, { useState } from "react";
 import TaskFilter from './task-filter';
 import TaskBoard from './(kanban-board)/TaskBoard';
+import { ModeToggle } from "@/app/components/ui/mode-toggle";
+import UserItem from "./user-item";
+import { Dialog, DialogContent, DialogHeader,DialogTrigger} from "@/components/ui/dialog"
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Settings } from 'lucide-react';
 
 interface Task {
   deadline: string;
@@ -44,30 +50,37 @@ export default function ClientDashboard() {
 
   const [columns, setColumns] = useState<Column[]>(initialColumns);
 
-  // Handler to add a new task based on status
-  const handleAddTask = (newTask: Task) => {
-    const updatedColumns = columns.map((column) => {
-      if (
-        (column.title === "To-Do" && newTask.status === "to-do") ||
-        (column.title === "Under Review" && newTask.status === "under-review") ||
-        (column.title === "In Progress" && newTask.status === "in-progress") ||
-        (column.title === "Done" && newTask.status === "completed")
-      ) {
-        return {
-          ...column,
-          tasks: [...column.tasks, newTask], // Add new task to the relevant column
-        };
-      }
-      return column;
-    });
-
-    setColumns(updatedColumns); // Update columns state with new task
-  };
-
   return (
     <>
-      <div className="mt-4 md:mt-8 block md:flex items-center justify-between">
-        <TaskFilter onAddTask={handleAddTask} />
+      <div className="flex items-center justify-between max-w-xl mx-auto">
+        <div>
+          Page Legend
+        </div>
+        <div className="flex items-center gap-x-4 md:gap-x-10">
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant='ghost' className='px-0'>
+                <Settings className='h-7 w-7' />
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[500px]">
+              <DialogHeader className='border-b pb-3'>
+                <h2>My Settings</h2>
+              </DialogHeader>
+              <div className='flex items-center justify-between'>
+                <div className='flex flex-col gap-y-1'>
+                  <Label>Appearence</Label>
+                  <span className='text-[0.8rem] text-muted-foreground'>Customize how PlanIt looks on your device</span>
+                </div>
+                <ModeToggle />
+              </div>
+            </DialogContent>
+          </Dialog>
+          <UserItem />
+        </div>
+      </div>
+      <div className="mt-4 md:mt-5.5 block md:flex items-center justify-between">
+        <TaskFilter/>
       </div>
       <div>
         <TaskBoard columns={columns} />

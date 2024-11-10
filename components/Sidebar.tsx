@@ -17,13 +17,13 @@ export default function Sidebar() {
   }
 
   return (
-    <aside
+    <div
       className={`h-screen bg-white dark:bg-[#262626] text-black dark:text-white p-3.5 transition-all duration-300 ease-in-out relative ${isOpen ? 'w-32 md:w-60' : 'w-14'
         }`}
     >
       <div className={`flex ${isOpen ? 'justify-end' : 'justify-center'} transition-all duration-300 ease-in-out`}>
         <button
-          onClick={toggleSidebar}
+          // onClick={toggleSidebar}
           className='transition-transform duration-300 ease-in-out'
         >
           <Menu
@@ -54,6 +54,6 @@ export default function Sidebar() {
         </Dialog>
         <UserItem />
       </div>
-    </aside>
+    </div>
   );
 }

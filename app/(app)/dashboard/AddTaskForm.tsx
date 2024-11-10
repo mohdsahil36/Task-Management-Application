@@ -9,55 +9,8 @@ import { Calendar } from "@/components/ui/calendar";
 import { CalendarIcon } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
-
-interface FormData {
-    title: string;
-    description: string;
-    status: string;
-    priority: string;
-    deadline: string;
-  }
   
-  interface TaskFormProps {
-    formData: FormData;
-    setFormData: React.Dispatch<React.SetStateAction<FormData>>;
-    date: Date | undefined;
-    setDate: React.Dispatch<React.SetStateAction<Date | undefined>>;
-  }
-  
-  export default function AddTaskForm({ formData, setFormData, date, setDate }: TaskFormProps) {
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      const { id, value } = e.target;
-      
-      setFormData((prevData: FormData) => ({
-        ...prevData,
-        [id]: value,
-      }));
-    };
-  
-    const handleStatusChange = (value: string) => {
-      setFormData((prevData: FormData) => ({
-        ...prevData,
-        status: value,
-      }));
-    };
-  
-    const handlePriorityChange = (value: string) => {
-      setFormData((prevData: FormData) => ({
-        ...prevData,
-        priority: value,
-      }));
-    };
-
-    const handleDateSelect = (selectedDate: Date | undefined) => {
-      setDate(selectedDate);
-      if (selectedDate) {
-        setFormData((prevData: FormData) => ({
-          ...prevData,
-          deadline: format(selectedDate, "PPP"),
-        }));
-      }
-    };
+  export default function AddTaskForm() {
   
     return (
       <div className="grid gap-4">
@@ -69,8 +22,6 @@ interface FormData {
             id="title"
             placeholder="Enter your task title"
             className="mt-2"
-            value={formData.title}
-            onChange={handleChange}
           />
         </div>
         <div>
@@ -81,8 +32,6 @@ interface FormData {
             id="description"
             placeholder="Enter your task details"
             className="mt-2"
-            value={formData.description}
-            onChange={handleChange}
           />
         </div>
         <div className="flex items-center justify-between">
@@ -90,7 +39,7 @@ interface FormData {
             Status
           </Label>
           <div className="ms-2">
-            <Select onValueChange={handleStatusChange}>
+            <Select>
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Select status" />
               </SelectTrigger>
@@ -108,7 +57,7 @@ interface FormData {
             Priority
           </Label>
           <div className="ms-2">
-            <Select onValueChange={handlePriorityChange}>
+            <Select>
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Select priority" />
               </SelectTrigger>
@@ -128,17 +77,12 @@ interface FormData {
             <PopoverTrigger asChild>
               <Button
                 variant={"outline"}
-                className={cn(
-                  "w-[180px] justify-start text-left font-normal",
-                  !date && "text-muted-foreground"
-                )}
               >
                 <CalendarIcon className="mr-2 h-4 w-4" />
-                {date ? format(date, "PPP") : <span>Pick a date</span>}
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0">
-              <Calendar mode="single" selected={date} onSelect={handleDateSelect} initialFocus />
+              <Calendar mode="single" initialFocus />
             </PopoverContent>
           </Popover>
         </div>
