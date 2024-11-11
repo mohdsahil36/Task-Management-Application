@@ -1,5 +1,9 @@
-import React from "react";
+"use client"
 
+import React, { useContext } from "react";
+import { FormContext } from "../context";
+
+// Task interface to match incoming task data structure
 interface Task {
   deadline: string;
   description: string;
@@ -19,6 +23,10 @@ interface TaskBoardProps {
 }
 
 export default function TaskBoard({ columns }: TaskBoardProps) {
+  // Access formData from context, containing the latest task data
+  const { formData } = useContext(FormContext)!;
+  console.log("Data received through context:", formData);
+
   return (
     <div className="grid grid-cols-4 gap-x-4 text-center mt-4 md:mt-7">
       {columns.map((column) => (
