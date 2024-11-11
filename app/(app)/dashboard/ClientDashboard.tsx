@@ -52,11 +52,8 @@ export default function ClientDashboard() {
 
   return (
     <>
-      <div className="flex items-center justify-between max-w-xl mx-auto">
-        <div>
-          Page Legend
-        </div>
-        <div className="flex items-center gap-x-4 md:gap-x-10">
+      <div className="flex items-center justify-end max-w-fit ml-auto px-3.5 py-1 border-2 border-[#ddd8d8ee] rounded-full shadow-sm">
+        <div className="flex items-center gap-x-4 md:gap-x-6">
           <Dialog>
             <DialogTrigger asChild>
               <Button variant='ghost' className='px-0'>

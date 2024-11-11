@@ -28,12 +28,6 @@ export default function TaskFilter() {
 
             <AddTaskForm
             />
-            
-            <DialogFooter>
-              <Button type="button">
-                Add Task
-              </Button>
-            </DialogFooter>
           </DialogContent>
         </Dialog>
       </div>

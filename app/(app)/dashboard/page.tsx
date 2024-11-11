@@ -18,7 +18,7 @@ export default async function Dashboard() {
   return (
     <div className="h-screen flex">
       <div className="bg-[#f5f5f5] dark:bg-[#1F1F1F] flex-1 h-full p-2.5 overflow-y-auto relative">
-        <ClientDashboard />
+          <ClientDashboard />
       </div>
     </div>
   );
