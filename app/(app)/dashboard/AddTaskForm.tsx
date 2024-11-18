@@ -48,13 +48,12 @@ export default function AddTaskForm() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    // Prepare newTask object including formatted date if selected
     const newTask = {
       ...formvalues,
       deadline: date ? format(date, "PPP") : ""
     };
 
-    setTask(newTask);  // Update context with the new task data
+    setTask(newTask);
   };
 
   return (

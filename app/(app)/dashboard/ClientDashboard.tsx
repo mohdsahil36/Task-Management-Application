@@ -1,14 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
-import TaskFilter from './task-filter';
-import TaskBoard from './(kanban-board)/TaskBoard';
+import React, { useState, useContext, useEffect } from "react";
+import TaskFilter from "./task-filter";
+import TaskBoard from "./(kanban-board)/TaskBoard";
 import { ModeToggle } from "@/app/components/ui/mode-toggle";
 import UserItem from "./user-item";
-import { Dialog, DialogContent, DialogHeader,DialogTrigger} from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogHeader, DialogTrigger } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Settings } from 'lucide-react';
+import { Settings } from "lucide-react";
+import { FormContext } from "./context";
 
 interface Task {
   deadline: string;
@@ -33,12 +34,12 @@ export default function ClientDashboard() {
     },
     {
       id: 2,
-      title: "Under Review",
+      title: "Under-Review",
       tasks: [],
     },
     {
       id: 3,
-      title: "In Progress",
+      title: "In-Progress",
       tasks: [],
     },
     {
@@ -50,24 +51,46 @@ export default function ClientDashboard() {
 
   const [columns, setColumns] = useState<Column[]>(initialColumns);
 
+  const { formData } = useContext(FormContext)!;
+
+  useEffect(() => {
+    if (formData) {
+      setColumns((prevColumns) =>
+        prevColumns.map((column) => {
+          if (column.title.toLowerCase() === formData.status.toLowerCase()) {
+            return {
+              ...column,
+              tasks: [...column.tasks, formData],
+            };
+          }
+          return column;
+        })
+      );
+    }
+  }, [formData]);
+
+  console.log(columns);
+
   return (
     <>
       <div className="flex items-center justify-end max-w-fit ml-auto px-3.5 py-1 border-2 border-[#ddd8d8ee] rounded-full shadow-sm">
         <div className="flex items-center gap-x-4 md:gap-x-6">
           <Dialog>
             <DialogTrigger asChild>
-              <Button variant='ghost' className='px-0'>
-                <Settings className='h-7 w-7' />
+              <Button variant="ghost" className="px-0">
+                <Settings className="h-7 w-7" />
               </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[500px]">
-              <DialogHeader className='border-b pb-3'>
+              <DialogHeader className="border-b pb-3">
                 <h2>My Settings</h2>
               </DialogHeader>
-              <div className='flex items-center justify-between'>
-                <div className='flex flex-col gap-y-1'>
-                  <Label>Appearence</Label>
-                  <span className='text-[0.8rem] text-muted-foreground'>Customize how PlanIt looks on your device</span>
+              <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-y-1">
+                  <Label>Appearance</Label>
+                  <span className="text-[0.8rem] text-muted-foreground">
+                    Customize how PlanIt looks on your device
+                  </span>
                 </div>
                 <ModeToggle />
               </div>
@@ -77,7 +100,7 @@ export default function ClientDashboard() {
         </div>
       </div>
       <div className="mt-4 md:mt-5.5 block md:flex items-center justify-between">
-        <TaskFilter/>
+        <TaskFilter />
       </div>
       <div>
         <TaskBoard columns={columns} />
