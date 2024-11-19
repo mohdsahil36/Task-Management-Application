@@ -21,9 +21,14 @@ interface Task {
   title: string;
 }
 
+interface selectedStatus{
+  selectedStatus:string;
+}
+
 export default function AddTaskForm() {
   // Access the setTask function from FormContext to submit task data
   const { setTask } = useContext(FormContext)!;
+  console.log("Value:",selectedStatus);
 
   const [date, setDate] = useState<Date>();
   const [formvalues, setFormValues] = useState<Task>({
