@@ -35,16 +35,25 @@ export default function TaskBoard({ columns }: TaskBoardProps) {
             {column.tasks.map((task, index) => (
               <div
                 key={index}
-                className="bg-gray-200 dark:bg-gray-800 p-3 rounded-lg text-black dark:text-white text-start"
+                className="bg-white dark:bg-gray-800 p-3 border border-2 rounded-xl text-black dark:text-white text-start"
               >
-                <div>
-                  <span className="text-sm uppercase">{task.priority}</span>
-                  <p className="text-xs italic">{task.deadline}</p>
+                <div className="flex items-center gap-x-4">
+                  <span
+                    className={`text-sm capitalize py-2 px-4 rounded-md ${task.priority === 'high'
+                        ? 'bg-[#FFEFEF] text-[#FF685D]'
+                        : task.priority === 'medium'
+                        ? 'bg-[#FFF4F0] text-[#FFCB65]'
+                        : 'bg-[#EEFFF4] text-[#BBFFD3]'
+                      }`}
+                  >
+                    {task.priority}
+                  </span>
+                  <p className="text-sm bg-[#F9F9F9] rounded-md py-2 px-2.5 text-[#3C3C3C]">{task.deadline}</p>
                 </div>
-                <p className="font-semibold text-2xl normal-case">
+                <p className="font-base text-lg normal-case mt-3.5 text-[#3C3C3C]">
                   {task.title}
                 </p>
-                <p className="text-base normal-case my-2">{task.description}</p>
+                <p className="text-sm normal-case my-2 text-[#B9BDC8]">{task.description}</p>
               </div>
             ))}
           </div>

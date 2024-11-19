@@ -49,7 +49,15 @@ export default function ClientDashboard() {
     },
   ];
 
-  const [columns, setColumns] = useState<Column[]>(initialColumns);
+  const [columns, setColumns] = useState<Column[]>(() => {
+  const storedData = localStorage.getItem("kanbanColumns");
+  try {
+    return storedData ? JSON.parse(storedData) : initialColumns;
+  } catch (error) {
+    console.error("Failed to parse columns from local storage:", error);
+    return initialColumns;
+  }
+});
 
   const { formData } = useContext(FormContext)!;
 
@@ -70,6 +78,15 @@ export default function ClientDashboard() {
   }, [formData]);
 
   console.log(columns);
+  
+  useEffect(()=>{
+    try{
+      localStorage.setItem("kanbanColumns",JSON.stringify(columns));
+    }
+    catch(error){
+      console.error("Failed to save columns", error);
+    }
+  },[columns])
 
   return (
     <>
