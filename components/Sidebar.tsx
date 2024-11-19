@@ -23,7 +23,7 @@ export default function Sidebar() {
     >
       <div className={`flex ${isOpen ? 'justify-end' : 'justify-center'} transition-all duration-300 ease-in-out`}>
         <button
-          // onClick={toggleSidebar}
+          onClick={toggleSidebar}
           className='transition-transform duration-300 ease-in-out'
         >
           <Menu
