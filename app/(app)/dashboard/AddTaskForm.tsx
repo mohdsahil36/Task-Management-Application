@@ -21,10 +21,6 @@ interface Task {
   title: string;
 }
 
-interface selectedStatus{
-  selectedStatus:string;
-}
-
 export default function AddTaskForm() {
   // Access the setTask function from FormContext to submit task data
   const { setTask } = useContext(FormContext)!;
