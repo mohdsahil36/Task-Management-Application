@@ -44,7 +44,7 @@ export default function TaskBoard({ columns }: TaskBoardProps) {
                       ? 'bg-[#FFEFEF] text-[#FF685D]'
                       : task.priority === 'medium'
                         ? 'bg-[#FFF4F0] text-[#FFCB65]'
-                        : 'bg-[#EEFFF4] text-[#BBFFD3]'
+                        : 'bg-[#EEFFF4] text-[#00cc00]'
                       }`}
                   >
                     {task.priority}

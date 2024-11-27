@@ -9,10 +9,10 @@ export default function TaskFilter() {
 
   return (
     <>
-      <div className="flex w-full max-w-sm items-center space-x-2">
+      {/* <div className="flex w-full max-w-sm items-center space-x-2">
         <Input placeholder="Search Task" type="text" />
         <Button type="submit">Search</Button>
-      </div>
+      </div> */}
       <div className="text-center md:text-start mt-2 md:mt-none">
         <Dialog>
           <DialogTrigger asChild>
@@ -25,7 +25,6 @@ export default function TaskFilter() {
               <DialogTitle>Add new task</DialogTitle>
               <DialogDescription>Add details of your task and you&apos;re good to go!</DialogDescription>
             </DialogHeader>
-
             <AddTaskForm
             />
           </DialogContent>
