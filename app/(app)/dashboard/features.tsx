@@ -16,11 +16,6 @@ const featuresData: Feature[] = [
         icon: CircleCheck,
     },
     {
-        title: "Progress Tracking",
-        description: "Monitor your progress with intuitive charts and statistics",
-        icon: BarChart,
-    },
-    {
         title: "Deadlines",
         description: "Set and manage deadlines to keep your projects on track",
         icon: Calendar,
