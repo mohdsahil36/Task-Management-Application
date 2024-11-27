@@ -77,7 +77,7 @@ export default function ClientDashboard() {
     }
   }, [formData]);
 
-  console.log(columns);
+  // console.log(columns);
   
   useEffect(()=>{
     try{

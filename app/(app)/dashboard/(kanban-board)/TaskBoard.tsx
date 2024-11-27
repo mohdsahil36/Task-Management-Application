@@ -55,10 +55,13 @@ export default function TaskBoard({ columns }: TaskBoardProps) {
                   {task.title}
                 </p>
                 <p className="text-sm normal-case my-2 text-[#B9BDC8]">{task.description}</p>
+                <p className="text-red-500 mt-3 text-sm hover:underline cursor-pointer text-center">
+                  Delete
+                </p>
               </div>
             ))}
           </div>
-          <div>
+          {/* <div>
             <Dialog>
               <DialogTrigger asChild>
                 <button
@@ -77,7 +80,7 @@ export default function TaskBoard({ columns }: TaskBoardProps) {
                 />
               </DialogContent>
             </Dialog>
-          </div>
+          </div> */}
         </div>
       ))}
     </div>
