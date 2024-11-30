@@ -120,7 +120,7 @@ export default function ClientDashboard() {
         <TaskFilter />
       </div>
       <div>
-        <TaskBoard columns={columns} />
+        <TaskBoard columns={columns}/>
       </div>
     </>
   );

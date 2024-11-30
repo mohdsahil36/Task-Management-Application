@@ -1,9 +1,6 @@
-// "use client"
+"use client";
 
-import React from "react";
-// import { Plus } from 'lucide-react';
-// import { Dialog, DialogContent, DialogHeader, DialogTrigger, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-// import AddTaskForm from "../AddTaskForm";
+import React, { useEffect, useState } from "react";
 
 interface Task {
   deadline: string;
@@ -24,10 +21,34 @@ interface TaskBoardProps {
 }
 
 export default function TaskBoard({ columns }: TaskBoardProps) {
+  const [parsedData, setParsedData] = useState<Column[]>([]);
+
+  useEffect(() => {
+    const data = localStorage.getItem("kanbanColumns");
+    setParsedData(data ? JSON.parse(data) : columns); // Fallback to props if no localStorage data
+  }, [columns]);
+
+  // Function to delete a task from a specific column
+  function deleteHandler(title: string, index: number) {
+    setParsedData((prevData) => {
+      const updatedData = prevData.map((category) => {
+        if (category.title === title) {
+          return {
+            ...category,
+            tasks: category.tasks.filter((_, taskIndex) => taskIndex !== index),
+          };
+        }
+        return category;
+      });
+
+      localStorage.setItem("kanbanColumns", JSON.stringify(updatedData)); // Update localStorage
+      return updatedData;
+    });
+  }
 
   return (
     <div className="grid grid-cols-4 gap-x-4 text-center mt-4 md:mt-7">
-      {columns.map((column) => (
+      {parsedData.map((column) => (
         <div key={column.id}>
           <p className="text-xs md:text-base flex items-center justify-start mb-4 rounded-md p-3 bg-white text-[#3F3F3F] border-2 border-[#ddd8d8ee]">
             {column.title}
@@ -40,47 +61,39 @@ export default function TaskBoard({ columns }: TaskBoardProps) {
               >
                 <div className="flex items-center gap-x-4">
                   <span
-                    className={`text-sm capitalize py-2 px-4 rounded-md ${task.priority === 'high'
-                      ? 'bg-[#FFEFEF] text-[#FF685D]'
-                      : task.priority === 'medium'
-                        ? 'bg-[#FFF4F0] text-[#FFCB65]'
-                        : 'bg-[#EEFFF4] text-[#00cc00]'
-                      }`}
+                    className={`text-sm capitalize py-2 px-4 rounded-md ${
+                      task.priority === "high"
+                        ? "bg-[#FFEFEF] text-[#FF685D]"
+                        : task.priority === "medium"
+                        ? "bg-[#FFF4F0] text-[#FFCB65]"
+                        : "bg-[#EEFFF4] text-[#00cc00]"
+                    }`}
                   >
                     {task.priority}
                   </span>
-                  <p className="text-sm bg-[#F9F9F9] rounded-md py-2 px-2.5 text-[#3C3C3C]">{task.deadline}</p>
+                  <p className="text-sm bg-[#F9F9F9] rounded-md py-2 px-2.5 text-[#3C3C3C]">
+                    {task.deadline}
+                  </p>
                 </div>
                 <p className="font-base text-lg normal-case mt-3.5 text-[#3C3C3C]">
                   {task.title}
                 </p>
-                <p className="text-sm normal-case my-2 text-[#B9BDC8]">{task.description}</p>
-                <p className="text-red-500 mt-3 text-sm hover:underline cursor-pointer text-center">
-                  Delete
+                <p className="text-sm normal-case my-2 text-[#B9BDC8]">
+                  {task.description}
                 </p>
+                <div className="text-center">
+                  <button
+                    className="text-red-500 mt-3 text-sm hover:underline cursor-pointer text-center"
+                    onClick={() => {
+                      deleteHandler(column.title, index);
+                    }}
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
             ))}
           </div>
-          {/* <div>
-            <Dialog>
-              <DialogTrigger asChild>
-                <button
-                  className="w-full p-2.5 rounded-lg bg-gray-100 text-gray-500 border-2 border-gray-200 flex justify-center hover:bg-gray-200 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  aria-label="Add Task"
-                >
-                  <Plus />
-                </button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px]">
-                <DialogHeader>
-                  <DialogTitle>Add new task</DialogTitle>
-                  <DialogDescription>Add details of your task and you&apos;re good to go!</DialogDescription>
-                </DialogHeader>
-                <AddTaskForm           
-                />
-              </DialogContent>
-            </Dialog>
-          </div> */}
         </div>
       ))}
     </div>
