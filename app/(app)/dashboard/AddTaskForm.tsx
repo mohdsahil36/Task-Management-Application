@@ -15,13 +15,14 @@ import { FormContext } from "./context";
 
 interface Task {
   deadline: string;
-  description: string;
+  description: string;  
   priority: string;
   status: string;
   title: string;
 }
 
 export default function AddTaskForm() {
+  // let recivedData=props.parsedData;
   // Access the setTask function from FormContext to submit task data
   const { setTask } = useContext(FormContext)!;
 
@@ -128,7 +129,7 @@ export default function AddTaskForm() {
         </Popover>
       </div>
       <div className="text-center mt-2">
-        <Button type="submit">Add Task</Button>
+        <Button type="submit">Add / Edit Task</Button>
       </div>
     </form>
   );

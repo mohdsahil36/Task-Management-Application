@@ -14,7 +14,6 @@ interface FormContextType {
     setTask: (submittedTask: Task) => void;
 }
 
-// Create context with proper typing
 export const FormContext = createContext<FormContextType | undefined>(undefined);
 
 const FormProvider = ({ children }: { children: ReactNode }) => {

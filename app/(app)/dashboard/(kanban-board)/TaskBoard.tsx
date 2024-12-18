@@ -1,6 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTrigger, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import AddTaskForm from "../AddTaskForm";
+import { parse } from "path";
 
 interface Task {
   deadline: string;
@@ -22,10 +26,17 @@ interface TaskBoardProps {
 
 export default function TaskBoard({ columns }: TaskBoardProps) {
   const [parsedData, setParsedData] = useState<Column[]>([]);
+  const [editData, seteditData] = useState<Task>({
+    title: "",
+    description: "",
+    status: "",
+    priority: "",
+    deadline: ""
+  });
 
   useEffect(() => {
     const data = localStorage.getItem("kanbanColumns");
-    setParsedData(data ? JSON.parse(data) : columns); // Fallback to props if no localStorage data
+    setParsedData(data ? JSON.parse(data) : columns);
   }, [columns]);
 
   // Function to delete a task from a specific column
@@ -41,9 +52,18 @@ export default function TaskBoard({ columns }: TaskBoardProps) {
         return category;
       });
 
-      localStorage.setItem("kanbanColumns", JSON.stringify(updatedData)); // Update localStorage
+      localStorage.setItem("kanbanColumns", JSON.stringify(updatedData));
       return updatedData;
     });
+    console.log(parsedData);
+  }
+
+  function editHandler(title: string, index: number) {
+    parsedData.map((column) => {
+      if (column.title === title) {
+        console.log(column.tasks[index]);
+      }
+    })
   }
 
   return (
@@ -61,18 +81,17 @@ export default function TaskBoard({ columns }: TaskBoardProps) {
               >
                 <div className="flex items-center gap-x-4">
                   <span
-                    className={`text-sm capitalize py-2 px-4 rounded-md ${
-                      task.priority === "high"
-                        ? "bg-[#FFEFEF] text-[#FF685D]"
-                        : task.priority === "medium"
+                    className={`text-sm capitalize py-2 px-4 rounded-md ${task.priority === "high"
+                      ? "bg-[#FFEFEF] text-[#FF685D]"
+                      : task.priority === "medium"
                         ? "bg-[#FFF4F0] text-[#FFCB65]"
                         : "bg-[#EEFFF4] text-[#00cc00]"
-                    }`}
+                      }`}
                   >
                     {task.priority}
                   </span>
                   <p className="text-sm bg-[#F9F9F9] rounded-md py-2 px-2.5 text-[#3C3C3C]">
-                    {task.deadline}
+                    <span className="text-lg font-semibold">Due: </span> {task.deadline}
                   </p>
                 </div>
                 <p className="font-base text-lg normal-case mt-3.5 text-[#3C3C3C]">
@@ -82,8 +101,23 @@ export default function TaskBoard({ columns }: TaskBoardProps) {
                   {task.description}
                 </p>
                 <div className="text-center">
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button className="text-blue-500 mt-3 text-md hover:underline cursor-pointer text-center font-semibold" variant="ghost" onClick={() => {
+                        editHandler(column.title, index);
+                      }}>
+                        Edit
+                      </Button>
+                    </DialogTrigger>
+                    {/* <DialogContent className="sm:max-w-[425px]">
+                        <DialogHeader>
+                          <DialogTitle>Edit Task</DialogTitle>
+                        </DialogHeader>
+                        <AddTaskForm/>
+                      </DialogContent> */}
+                  </Dialog>
                   <button
-                    className="text-red-500 mt-3 text-sm hover:underline cursor-pointer text-center"
+                    className="ms-3 text-red-500 mt-3 text-md hover:underline cursor-pointer text-center"
                     onClick={() => {
                       deleteHandler(column.title, index);
                     }}
